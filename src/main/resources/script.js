@@ -37,6 +37,24 @@ function buscarEndereco() {
 
 const nomeCredorInput = document.getElementById('creditorName');
 const nameError = document.getElementById('nameError');
+const celularInput = document.getElementById('creditorCelular');
+const telefoneInput = document.getElementById('creditorTelefone');
+const cellphoneError = document.getElementById('cellphoneError');
+const phoneError = document.getElementById('phoneError');
+
+function validateNumericInput(input, errorElement) {
+  const regex = /^[0-9]*$/;
+  if (!regex.test(input.value)) {
+      errorElement.style.display = 'inline';
+      input.value = input.value.replace(/[^0-9]/g, '');
+  } else {
+      errorElement.style.display = 'none';
+  }
+}
+
+celularInput.addEventListener('input', () => validateNumericInput(celularInput, cellphoneError));
+telefoneInput.addEventListener('input', () => validateNumericInput(telefoneInput, phoneError));
+
 
 function validateName() {
     const regex = /^[A-Za-z\s]+$/;
