@@ -35,6 +35,21 @@ function buscarEndereco() {
   }
 }
 
+const nomeCredorInput = document.getElementById('creditorName');
+const nameError = document.getElementById('nameError');
+
+function validateName() {
+    const regex = /^[A-Za-z\s]+$/;
+    if (!regex.test(nomeCredorInput.value)) {
+        nameError.style.display = 'inline';
+        nomeCredorInput.value = nomeCredorInput.value.replace(/[^A-Za-z\s]/g, '');
+    } else {
+        nameError.style.display = 'none';
+    }
+}
+
+nomeCredorInput.addEventListener('input', validateName);
+
 function handleSubmit(event) {
   event.preventDefault();
 
@@ -42,6 +57,4 @@ function handleSubmit(event) {
   setTimeout(() => {
     successMessage.style.display = 'block';
   }, 500);
-
-  return false; // Evita o envio padrão do formulário
 }
