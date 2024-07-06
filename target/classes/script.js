@@ -3,6 +3,7 @@ const estadoInput = document.getElementById('estado');
 const cidadeInput = document.getElementById('cidade');
 const bairroInput = document.getElementById('bairro');
 const ruaInput = document.getElementById('rua');
+const successMessage = document.getElementById('successMessage');
 
 function buscarEndereco() {
   const cep = cepInput.value.replace(/[^0-9]/g, '');
@@ -32,4 +33,15 @@ function buscarEndereco() {
         // Handle network or other errors
       });
   }
+}
+
+function handleSubmit(event) {
+  event.preventDefault();
+
+  // Simulate form submission process
+  setTimeout(() => {
+    successMessage.style.display = 'block';
+  }, 500);
+
+  return false; // Evita o envio padrão do formulário
 }

@@ -9,109 +9,102 @@
 </head>
 
 <body>
-
-
-
 <style>
     body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 20px;
-      background-color: #f4f4f4;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #f4f4f4;
     }
 
     .container {
-      width: 600px;
-      margin: 0 auto;
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 5px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        width: 600px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
 
     h1 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #333;
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
     }
 
-    /* Estilos de Formulário */
     form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
     }
 
     .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
     }
 
     label {
-      font-weight: bold;
+        font-weight: bold;
     }
 
     input[type="text"],
     input[type="tel"],
     input[type="email"] {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 3px;
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
     }
 
-    /* Estilos de Botão */
     button {
-      background-color: #4CAF50; /* Verde */
-      color: white;
-      padding: 12px 20px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
     }
 
     button:hover {
-      background-color: #45a049; /* Verde mais escuro */
+        background-color: #45a049;
     }
 
-    /* Estilos de Entrada Específicos */
     #cep {
-      width: 150px;
+        width: 150px;
     }
 
     #creditorAddress {
-      width: 350px;
+        width: 350px;
     }
 
     #creditorBank,
     #creditorAgency,
     #creditorAccountNumber,
     #creditorDigit {
-      width: 200px;
+        width: 200px;
     }
 
-    /* Estilos de Feedback */
     #feedback {
-      margin-top: 10px;
-      font-size: 14px;
-      color: #333;
+        margin-top: 10px;
+        font-size: 14px;
+        color: #333;
     }
 
     .success {
-      color: green;
+        color: green;
     }
 
     .error {
-      color: red;
+        color: red;
     }
 </style>
 
 <div class="container">
     <h1>Cadastro de Credores</h1>
 
-    <form id="creditorForm">
+    <form id="creditorForm" onsubmit="return handleSubmit(event)">
         <div class="form-group">
             <label for="creditorName">Nome do Credor:</label>
             <input type="text" id="creditorName" name="creditorName" required>
@@ -184,6 +177,10 @@
 
         <button type="submit" id="botao">Cadastrar Credor</button>
     </form>
+
+    <div id="successMessage" class="success" style="display: none;">
+        Cadastro realizado com sucesso!
+    </div>
 </div>
 
 <script src="script.js"></script>
