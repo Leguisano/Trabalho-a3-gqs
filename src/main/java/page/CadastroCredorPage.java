@@ -1,14 +1,11 @@
 package page;
 
 import base.BasePage;
-import org.awaitility.Awaitility;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.Select;
 
-public class CadastroPage extends BasePage {
+public class CadastroCredorPage extends BasePage {
 
     @FindBy(id="creditorName")
     private WebElement nomeCredor;
@@ -33,17 +30,17 @@ public class CadastroPage extends BasePage {
     @FindBy(id="botao")
     private WebElement botao;
 
-    public CadastroPage(WebDriver driver) {
+    public CadastroCredorPage(WebDriver driver) {
         super(driver);
     }
 
 
-    public CadastroPage cadastroCredor(String nome){
+    public CadastroCredorPage cadastroCredor(String nome){
         nomeCredor.sendKeys(nome);
         return this;
     }
 
-    public CadastroPage cadastroCelular(Integer idCelular){
+    public CadastroCredorPage cadastroCelular(Integer idCelular){
         this.celular.sendKeys(idCelular.toString());
         return this;
     }
@@ -52,42 +49,42 @@ public class CadastroPage extends BasePage {
     //    driver.get("https://www.google.com.br/");
    // }
 
-    public CadastroPage cadastroTelefone(Integer idTelefone){
+    public CadastroCredorPage cadastroTelefone(Integer idTelefone){
         this.telefone.sendKeys(idTelefone.toString());
         return this;
     }
 
-    public CadastroPage cadastroEmail(String idEmail){
+    public CadastroCredorPage cadastroEmail(String idEmail){
         email.sendKeys(idEmail);
         return this;
     }
 
-    public CadastroPage cadastroBase(String idBase){
+    public CadastroCredorPage cadastroBase(String idBase){
         base.sendKeys(idBase);
         return this;
     }
 
-    public CadastroPage cadastroCEP(Integer idCep){
+    public CadastroCredorPage cadastroCEP(Integer idCep){
         this.cep.sendKeys(idCep.toString());
         return this;
     }
 
-    public CadastroPage cadastroBanco(String idBanco){
+    public CadastroCredorPage cadastroBanco(String idBanco){
         banco.sendKeys(idBanco);
         return this;
     }
 
-    public CadastroPage cadastroAgencia(Integer idAgencia){
+    public CadastroCredorPage cadastroAgencia(Integer idAgencia){
         this.agencia.sendKeys(idAgencia.toString());
         return this;
     }
 
-    public CadastroPage cadastroCC(Integer idCC){
+    public CadastroCredorPage cadastroCC(Integer idCC){
         this.cc.sendKeys(idCC.toString());
         return this;
     }
 
-    public CadastroPage cadastroDigito(Integer idDigito){
+    public CadastroCredorPage cadastroDigito(Integer idDigito){
         this.digito.sendKeys(idDigito.toString());
         return this;
     }
@@ -97,7 +94,7 @@ public class CadastroPage extends BasePage {
     }
 
 
-    public CadastroPage clicarCadastrar(){
+    public CadastroCredorPage clicarCadastrar(){
         botao.click();
         return this;
     }

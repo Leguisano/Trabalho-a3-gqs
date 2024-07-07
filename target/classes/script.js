@@ -37,6 +37,50 @@ function buscarEndereco() {
 
 const nomeCredorInput = document.getElementById('creditorName');
 const nameError = document.getElementById('nameError');
+const celularInput = document.getElementById('creditorCelular');
+const telefoneInput = document.getElementById('creditorTelefone');
+const cellphoneError = document.getElementById('cellphoneError');
+const phoneError = document.getElementById('phoneError');
+
+
+const form = document.getElementById('creditorForm');
+const nomeCredor = document.getElementById('creditorName');
+const nomeCredorError = document.createElement('span');
+nomeCredorError.className = 'error';
+nomeCredorError.style.display = 'none';
+nomeCredorError.textContent = 'Nome do Credor é obrigatório.';
+nomeCredor.parentNode.insertBefore(nomeCredorError, nomeCredor.nextSibling);
+
+form.addEventListener('submit', function (event) {
+    let isValid = true;
+
+    // Verificação do campo Nome do Credor
+    if (nomeCredor.value.trim() === '') {
+        nomeCredorError.style.display = 'inline';
+        isValid = false;
+    } else {
+        nomeCredorError.style.display = 'none';
+    }
+
+
+});
+
+
+
+
+function validateNumericInput(input, errorElement) {
+  const regex = /^[0-9]*$/;
+  if (!regex.test(input.value)) {
+      errorElement.style.display = 'inline';
+      input.value = input.value.replace(/[^0-9]/g, '');
+  } else {
+      errorElement.style.display = 'none';
+  }
+}
+
+celularInput.addEventListener('input', () => validateNumericInput(celularInput, cellphoneError));
+telefoneInput.addEventListener('input', () => validateNumericInput(telefoneInput, phoneError));
+
 
 function validateName() {
     const regex = /^[A-Za-z\s]+$/;
